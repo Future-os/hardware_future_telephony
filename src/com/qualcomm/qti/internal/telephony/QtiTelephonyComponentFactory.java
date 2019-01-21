@@ -23,18 +23,18 @@ import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.TelephonyComponentFactory;
 
-import com.qualcomm.qti.internal.telephony.HavocExtTelephony;
+import com.qualcomm.qti.internal.telephony.FutureExtTelephony;
 
 public class QtiTelephonyComponentFactory extends TelephonyComponentFactory {
 
     @Override
     public void makeExtTelephonyClasses(Context context,
             Phone[] phones, CommandsInterface[] commandsInterfaces) {
-        Rlog.d(LOG_TAG, "makeHavocExtTelephonyClasses");
+        Rlog.d(LOG_TAG, "makeFutureExtTelephonyClasses");
         try {
-            HavocExtTelephony.init(context, phones, commandsInterfaces);
+            FutureExtTelephony.init(context, phones, commandsInterfaces);
         } catch (NoClassDefFoundError e) {
-            Rlog.e(LOG_TAG, "Error creating HavocExtTelephony", e);
+            Rlog.e(LOG_TAG, "Error creating FutureExtTelephony", e);
         }
     }
 }
